@@ -3,7 +3,7 @@ def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
         Time Complexity: O(n * mlogm)
-        Space Complexity: O(n^2)
+        Space Complexity: O(n)
     """
     hash_table = {}
     if not strings:

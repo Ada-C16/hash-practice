@@ -61,5 +61,3 @@ def valid_sudoku(table):
         Space Complexity: ?
     """
     pass
-
-print(top_k_frequent_elements([1, 2, 2, 2, 3, 3, 3], 2))

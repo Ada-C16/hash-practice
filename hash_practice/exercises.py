@@ -27,8 +27,8 @@ def grouped_anagrams(strings):
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: 
+        Space Complexity: O(n)
     """
     freq_dict = {}
     result = []
@@ -41,8 +41,8 @@ def top_k_frequent_elements(nums, k):
         else:
             freq_dict[num] = 1
 
+    # sort freq_dict in reverse and only get key
     sorted_list = list(sorted(freq_dict, key=freq_dict.get, reverse=True))
-    print(sorted_list)
 
     for i in range(k):
         result.append(sorted_list[i])

@@ -78,6 +78,8 @@ def valid_sudoku(table):
         row, column or 3x3 subgrid
         Time Complexity: O(n^2)
         Space Complexity: O(n)
+        Not the cleanest solution, since I am checking every value in the table
+        three times, but I got it working!
     """
 
     for row in table:

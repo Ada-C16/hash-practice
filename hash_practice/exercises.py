@@ -5,7 +5,7 @@ from tabnanny import check
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: O(n*m log m) ..? 
+        Time Complexity: O(n*m log m) 
         Space Complexity: O(n) since a hash table was created
     """
     group_anagrams = dict()
@@ -26,7 +26,7 @@ def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
         Time Complexity: O(m*n)
-        Space Complexity: O(n)
+        Space Complexity: O(n) for num_freq
     """
     if not nums:
         return nums
@@ -57,8 +57,9 @@ def valid_sudoku(table):
         Each element can either be a ".", or a digit 1-9
         The same digit cannot appear twice or more in the same 
         row, column or 3x3 subgrid
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n^2)
+        Space Complexity: O(n) for all the sets created
+        // Not sure about time and space complexity for this one!
     """
     if check_if_row_valid(table) and check_if_column_valid(table) and check_if_subgrid_valid(table):
         return True
@@ -66,9 +67,9 @@ def valid_sudoku(table):
         return False
 
 def check_if_row_valid(table):
-    unique = set()
-    for a in range(9):
-        for b in range(9):
+    unique = set() # O(n) for space
+    for a in range(9): # O(n) for time
+        for b in range(9): # O(n) for time
             if table[a][b] not in unique and table[a][b] != ".":
                 unique.add(table[a][b])
             elif table[a][b] in unique and table[a][b] != ".":
@@ -77,9 +78,9 @@ def check_if_row_valid(table):
     return True
 
 def check_if_column_valid(table):
-    unique = set()
-    for a in range(9):
-        for b in range(9):
+    unique = set() # O(n) for space
+    for a in range(9): # O(n) for time
+        for b in range(9): # O(n) for time
             if table[b][a] not in unique and table[b][a] != ".":
                 unique.add(table[b][a])
             elif table[b][a] in unique and table[b][a] != ".":
@@ -88,7 +89,7 @@ def check_if_column_valid(table):
     return True
 
 def check_if_subgrid_valid(table):
-    unique = set()
+    unique = set() # O(n) for space
     for i in range(0, 9, 3): 
         for j in range(0, 9, 3): 
             for k in range(i, i+3) : 
@@ -100,17 +101,3 @@ def check_if_subgrid_valid(table):
             unique = set()
 
     return True
-
-table = [
-  ["8","3",".",".","7",".",".",".","."],
-  ["6",".",".","1","9","5",".",".","."],
-  [".","9","8",".",".",".",".","6","."],
-  ["8",".",".",".","6",".",".",".","3"],
-  ["4",".",".","8",".","3",".",".","1"],
-  ["7",".",".",".","2",".",".",".","6"],
-  [".","6",".",".",".",".","2","8","."],
-  [".",".",".","4","1","9",".",".","5"],
-  [".",".",".",".","8",".",".","7","9"]
-]
-
-check_if_subgrid_valid(table)

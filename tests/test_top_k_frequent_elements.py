@@ -28,6 +28,7 @@ def test_will_return_empty_list_given_an_empty_list():
     # Arrange
     numbers = []
     k = 1
+    # Having an empty list is not a valid input according to the README
 
     # Act
     answer = top_k_frequent_elements(numbers, k)

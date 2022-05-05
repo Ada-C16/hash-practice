@@ -1,19 +1,70 @@
 
+def to_dict(word):
+    anagram = {}
+
+    for letter in word:
+        if letter not in anagram:
+            anagram[letter] = 1
+        else:
+            anagram[letter] += 1
+
+    return anagram
+
+
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n^2) might be O(n^3) because of .sort()
+        Space Complexity: O(n)
     """
-    pass
+
+    # dictionary where the key is a tuple with the letters and key is a list of the element
+    print("OG LIST: ", strings)
+    result_list = []
+    anagram_dict = {}
+
+    if len(strings) == 0:
+        return []
+
+    for word in strings:
+        letter_list = []
+        for letter in word:
+            letter_list.append(letter)
+            letter_list.sort()
+            ordered_word = "".join(letter_list)
+        hashed = hash(ordered_word)
+        if hashed in anagram_dict:
+            anagram_dict[hashed].append(word)
+        else:
+            anagram_dict[hashed] = [word]
+
+    for value in anagram_dict.values():
+        result_list.append(value)
+
+    return result_list
+
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
     """
-    pass
+    print(k)
+    frequency_map = {}
+
+    for element in nums:
+        if element in frequency_map:
+            frequency_map[element] += 1
+        else:
+            frequency_map[element] = 1
+
+    print(frequency_map)
+
+    max_value = sorted(frequency_map.keys(),
+                       key=frequency_map.get, reverse=True)
+    print(max_value)
+    return max_value[0:k]
 
 
 def valid_sudoku(table):
@@ -26,4 +77,3 @@ def valid_sudoku(table):
         Space Complexity: ?
     """
     pass
-

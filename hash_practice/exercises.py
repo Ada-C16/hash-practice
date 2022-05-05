@@ -42,29 +42,6 @@ def grouped_anagrams(strings):
         result_list.append(value)
 
     return result_list
-<<<<<<< HEAD
-=======
-    # print("WORD: ", word)
-    # if len(anagram_dict) < 1:
-    #     anagram_dict[word] = [word]
-    #     print(anagram_dict)
-    # else:
-    #     # dict_copy = anagram_dict.copy()
-    #     for key in anagram_dict.keys():
-    #         print("key: ", key)
-    #         print("value: ", anagram_dict[key])
-    #         if not is_anagram(word, key):
-    #             print("False")
-    #             anagram_dict[word] = [word]
-    #             print(anagram_dict)
-    #         else:
-    #             print("True")
-    #             anagram_dict[key].append(word)
-    #             print(anagram_dict)
-    #             print("----------------")
-
-    print("FINAL DICT: ", anagram_dict)
->>>>>>> e3050e5f771fa3d08f54414dd959a733f0e9f41f
 
 
 def top_k_frequent_elements(nums, k):

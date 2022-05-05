@@ -1,11 +1,47 @@
 
+def to_dict(word):
+    anagram = {}
+
+    for letter in word:
+        if letter not in anagram:
+            anagram[letter] = 1
+        else:
+            anagram[letter] += 1
+
+    return anagram
+
+
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n^2) might be O(n^3) because of .sort()
+        Space Complexity: O(n)
     """
-    pass
+
+    # dictionary where the key is a tuple with the letters and key is a list of the element
+    print("OG LIST: ", strings)
+    result_list = []
+    anagram_dict = {}
+
+    if len(strings) == 0:
+        return []
+
+    for word in strings:
+        letter_list = []
+        for letter in word:
+            letter_list.append(letter)
+            letter_list.sort()
+            ordered_word = "".join(letter_list)
+        hashed = hash(ordered_word)
+        if hashed in anagram_dict:
+            anagram_dict[hashed].append(word)
+        else:
+            anagram_dict[hashed] = [word]
+
+    for value in anagram_dict.values():
+        result_list.append(value)
+
+    return result_list
 
 
 def top_k_frequent_elements(nums, k):

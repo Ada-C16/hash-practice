@@ -59,7 +59,8 @@ def top_k_frequent_elements(nums, k):
     print(kItems)
     return kItems 
 
-# def valid_sudoku(table):
+def valid_sudoku(table):
+    pass
 #     """ This method will return the true if the table is still
 #         a valid sudoku table.
 #         Each element can either be a ".", or a digit 1-9

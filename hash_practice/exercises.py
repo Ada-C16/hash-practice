@@ -59,38 +59,38 @@ def top_k_frequent_elements(nums, k):
     print(kItems)
     return kItems 
 
-def valid_sudoku(table):
-    """ This method will return the true if the table is still
-        a valid sudoku table.
-        Each element can either be a ".", or a digit 1-9
-        The same digit cannot appear twice or more in the same 
-        row, column or 3x3 subgrid
-        Time Complexity: ?
-        Space Complexity: ?
-    """
-    #need to manually check that every square, row, column is valid
-    #so make every square, row, column into a freq map
+# def valid_sudoku(table):
+#     """ This method will return the true if the table is still
+#         a valid sudoku table.
+#         Each element can either be a ".", or a digit 1-9
+#         The same digit cannot appear twice or more in the same 
+#         row, column or 3x3 subgrid
+#         Time Complexity: ?
+#         Space Complexity: ?
+#     """
+#     #need to manually check that every square, row, column is valid
+#     #so make every square, row, column into a freq map
     
-    for row in table:
-        map = {}
-        for block in row:
-            if block not in map:
-                map[block] = 1
-            elif block != ".": #if it's already in the map and NOT a ".", there's more than one 
-                return False
+#     for row in table:
+#         map = {}
+#         for block in row:
+#             if block not in map:
+#                 map[block] = 1
+#             elif block != ".": #if it's already in the map and NOT a ".", there's more than one 
+#                 return False
     
 
-    columnNum = 0
-    while columnNum < 9:
-        rowNum = 0
-        map = {}
-        while rowNum < 9:
-            if table[rowNum][columnNum] not in map:
-                map[table[rowNum][columnNum]] = 1
-            elif block != ".":
-                return False
-            rowNum += 1
-        columnNum += 1
+#     columnNum = 0
+#     while columnNum < 9:
+#         rowNum = 0
+#         map = {}
+#         while rowNum < 9:
+#             if table[rowNum][columnNum] not in map:
+#                 map[table[rowNum][columnNum]] = 1
+#             elif block != ".":
+#                 return False
+#             rowNum += 1
+#         columnNum += 1
     
     #now i wanna slice for the squares
     #square 1 is 
@@ -113,14 +113,14 @@ def valid_sudoku(table):
     #table[4][0:3]
     #table[5][0:3]
 
-    squares = []
-    rowNum = 0
-    while rowNum < 7:
-        start = 0
-        stop = 3
-        square = []
-        while stop < 10:
-            square.append(table[rowNum][start:stop])
+    # squares = []
+    # rowNum = 0
+    # while rowNum < 7:
+    #     start = 0
+    #     stop = 3
+    #     square = []
+    #     while stop < 10:
+    #         square.append(table[rowNum][start:stop])
 
     
 

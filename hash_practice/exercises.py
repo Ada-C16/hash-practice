@@ -3,8 +3,8 @@ from collections import defaultdict
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n*m) because m depends on how long the string is, so that is variable 
+        Space Complexity: O(n) because we're creating an array that can be, worst case, as long as the initial array
     """
     anagram_dict = defaultdict(list)
     result = []
@@ -26,8 +26,8 @@ def grouped_anagrams(strings):
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n) we're creating an array and returning it. Can be max of nums
     """
     elements_dict = defaultdict(int)
     result = []
@@ -51,8 +51,8 @@ def valid_sudoku(table):
         Each element can either be a ".", or a digit 1-9
         The same digit cannot appear twice or more in the same 
         row, column or 3x3 subgrid
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n^2) but I'm not sure. 
+        Space Complexity: O(1). While I create arrays, they're just temporary 
     """
     valid_element = {
         '1':1, '2':1, '3':1, '4':1, '5':1,

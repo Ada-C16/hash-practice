@@ -1,5 +1,5 @@
 import pytest
-# from hash_practice.exercises import valid_sudoku
+from hash_practice.exercises import valid_sudoku
 
 @pytest.mark.skip
 def test_example_in_readme():
@@ -124,7 +124,7 @@ def test_two_numbers_in_same_col_in_grid():
 
     # Assert
     assert not valid
-    
+
 @pytest.mark.skip
 def test_two_numbers_in_same_subgrid_in_grid():
     # Arrange

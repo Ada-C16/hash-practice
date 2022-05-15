@@ -4,7 +4,6 @@ def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
     """
-    
     anagrams = []
     word_dict = anagrams_helper(strings)
     for word in word_dict.values():
@@ -13,11 +12,8 @@ def grouped_anagrams(strings):
 
 
 def top_k_frequent_elements(nums, k):
-    """ This method will return the k most common elements
-        In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
-    """
+    """ This method will return the k most common elements"""
+    
     num_frequency = {}
     for num in nums:
         if not num in num_frequency.keys():

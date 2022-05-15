@@ -21,6 +21,7 @@ def test_example_in_readme():
 
     # Assert
     assert valid
+
 @pytest.mark.skip
 def test_an_invalid_example():
   # Arrange
@@ -39,6 +40,7 @@ def test_an_invalid_example():
   # Act
   valid = valid_sudoku(table)
   assert not valid
+
 @pytest.mark.skip
 def test_blank_grid():
     # Arrange
@@ -59,6 +61,7 @@ def test_blank_grid():
 
     # Assert
     assert valid
+
 @pytest.mark.skip
 def test_one_number_in_grid():
     # Arrange
@@ -79,6 +82,7 @@ def test_one_number_in_grid():
 
     # Assert
     assert valid
+
 @pytest.mark.skip
 def test_two_numbers_in_same_row_in_grid():
     # Arrange
@@ -99,6 +103,7 @@ def test_two_numbers_in_same_row_in_grid():
 
     # Assert
     assert not valid
+
 @pytest.mark.skip
 def test_two_numbers_in_same_col_in_grid():
     # Arrange
@@ -119,6 +124,7 @@ def test_two_numbers_in_same_col_in_grid():
 
     # Assert
     assert not valid
+    
 @pytest.mark.skip
 def test_two_numbers_in_same_subgrid_in_grid():
     # Arrange

@@ -1,20 +1,38 @@
 
 from audioop import reverse
+from re import L
+from tokenize import group
 
 
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
-    pass
+
+    grouped_anagrams = {}
+
+    for word in strings:
+        unique_word = "".join(sorted(word))
+        if unique_word in grouped_anagrams:
+            grouped_anagrams[unique_word].append(word)
+        else:
+            grouped_anagrams[unique_word] = [word]
+    
+    output = []
+
+    for values in grouped_anagrams.values():
+        output.append(values)
+    
+    return output
+
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: 
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
     if len(nums) == 0:
         return []
@@ -40,7 +58,7 @@ def top_k_frequent_elements(nums, k):
             reverse_num_map[value] = key
     
     most_frequent = []
-    
+
     for i in range(k):
         max_freq_num = reverse_num_map[max(reverse_num_map)]
         most_frequent.append(max_freq_num)
@@ -58,4 +76,3 @@ def valid_sudoku(table):
         Space Complexity: ?
     """
     pass
-

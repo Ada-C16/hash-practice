@@ -30,3 +30,15 @@ def anagrams_helper(source_list):
         key = "".join(sorted(word))
         word_dict[key].append(word)
     return word_dict
+
+
+def valid_sudoku(table):
+    """ This method will return the true if the table is still
+        a valid sudoku table.
+        Each element can either be a ".", or a digit 1-9
+        The same digit cannot appear twice or more in the same 
+        row, column or 3x3 subgrid
+        Time Complexity: ?
+        Space Complexity: ?
+    """
+    pass

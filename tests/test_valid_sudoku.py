@@ -138,5 +138,4 @@ def test_two_numbers_in_same_subgrid_in_grid():
 
     # Assert
     assert not valid
-
-  
+    

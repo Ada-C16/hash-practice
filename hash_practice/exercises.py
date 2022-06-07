@@ -9,13 +9,24 @@ def grouped_anagrams(strings):
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
-        In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        In the case of a tie it will select the first occuring element. OUR ANSWER
+        Time Complexity: ? O(nlogn)
+        Space Complexity: ? O(n)
     """
-    pass
+    if nums == []:
+        return []
+    freq_dict = {}
+    for num in nums:
+        if num in freq_dict:
+            freq_dict[num] += 1
+        else: 
+            freq_dict[num] = 1
+    nums_set = set(nums) 
+    nums = list(nums_set)
+    nums.sort(reverse=True, key=lambda lol: freq_dict[lol])
+    return nums[0:k:1]
 
-
+# maybe later
 def valid_sudoku(table):
     """ This method will return the true if the table is still
         a valid sudoku table.

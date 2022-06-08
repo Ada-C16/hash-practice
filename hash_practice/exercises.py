@@ -2,10 +2,36 @@
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: ? O(n)
+        Space Complexity: ? 0(n)
     """
-    pass
+    # guard clause
+    if not strings:
+        return strings
+
+    # create a empty array to hold arrays of anagrams
+    anagrams = []
+
+    # create an empty dictionary to hold sorted string keys and list of strings values
+    ana_dict = {}
+    
+    def hash_func(string):
+        sorted_string = ''.join(sorted(string))
+        if sorted_string not in ana_dict:
+            ana_dict[sorted_string]=[string]
+        else:
+            ana_dict[sorted_string].append(string)
+
+    # iterate through the list of strings
+    for string in strings:
+        hash_func(string)
+    
+    for key, value in ana_dict.items():
+        anagrams.append(value)
+
+    #return list of lists
+    return anagrams
+
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
@@ -37,4 +63,3 @@ def valid_sudoku(table):
         Space Complexity: ?
     """
     pass
-

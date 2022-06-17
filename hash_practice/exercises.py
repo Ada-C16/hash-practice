@@ -2,10 +2,16 @@ from collections import defaultdict, deque
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(m (n log n)) where m is number of words & n is avg number of characters in chars in each word
+        Space Complexity: O(n)
     """
-    pass
+    anagrams = defaultdict(list)
+    for word in strings: # O(m) where m is number of words
+        sorted_word = "".join(sorted(word)) # O(n log n) where n is number of characters in word
+        anagrams[sorted_word].append(word)
+    result = [words for words in anagrams.values()] # O(a) where a is number of anagram groups, at most equal to m (number of words)
+    return result
+
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements

@@ -22,7 +22,19 @@ def test_it_works_with_example_2():
     answer = top_k_frequent_elements(numbers, k)
 
     # Assert
-    assert numbers == [1]
+    assert answer == [1]
+
+def test_it_works_with_example_3():
+    # Arrange
+    numbers = [1,1,1,2,2,2,3,3,3,4,4]
+    k = 3
+
+    # Act
+    answer = top_k_frequent_elements(nums=numbers, k=k)
+
+    # Assert
+    answer.sort()
+    assert answer == [1, 2, 3]
 
 def test_will_return_empty_list_given_an_empty_list():
     # Arrange

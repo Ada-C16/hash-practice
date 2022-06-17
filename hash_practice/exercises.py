@@ -34,37 +34,25 @@ def top_k_frequent_elements(nums, k):
         Time Complexity: O(n)
         Space Complexity: O(n)
     """
-    if len(nums) == 0:
-        return []
 
-    num_map = {}
+    map = {}
 
-    for i in nums:
-        if i in num_map:
-            num_map[i] += 1
+    for num in nums:
+        if num in map:
+            map[num] += 1
         else:
-            num_map[i] = 1
-    
-    if len(num_map) == k:
+            map[num] = 1
+
+    if len(map) == k or len(nums)==0:
         return nums
 
-    reverse_num_map = {}
-
-    for key in num_map:
-        value = num_map[key]
-        if value in reverse_num_map:
-            reverse_num_map[value - .5] = key
-        else:
-            reverse_num_map[value] = key
-    
-    most_frequent = []
+    sorted_map = sorted(map.items(), key=lambda x:x[1], reverse=True)
+    result = []
 
     for i in range(k):
-        max_freq_num = reverse_num_map[max(reverse_num_map)]
-        most_frequent.append(max_freq_num)
-        reverse_num_map.pop(max(reverse_num_map))
-    
-    return most_frequent
+        result.append(sorted_map[i][0])
+
+    return result
 
 def valid_sudoku(table):
     """ This method will return the true if the table is still

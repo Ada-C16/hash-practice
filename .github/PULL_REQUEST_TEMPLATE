@@ -6,10 +6,10 @@ Congratulations! You're submitting your assignment!
 
 Question | Answer
 :------------- | :-------------
-Why is a good Hash Function Important? | 
-How can you judge if a hash function is good or not? | 
-Is there a perfect hash function?  If so what is it? | 
-Describe a strategy to handle collisions in a hash table | 
-Describe a situation where a hash table wouldn't be as useful as a binary search tree | 
-What is one thing that is more clear to you on hash tables now | 
+Why is a good Hash Function Important? | Because it avoid collision and runtime is O(1)
+How can you judge if a hash function is good or not? | A good algorithm that can avoid collision
+Is there a perfect hash function? If so, what is it? No. It all depends on what you're hoping to do
+Describe a strategy to handle collisions in a hash table | Use linear probing to find the next available space
+Describe a situation where a hash table wouldn't be as useful as a binary search tree | When ordering is important. Although later version of python dictionary is ordered, so I guess ordering isn't going to be an issue? idk
+What is one thing that is more clear to you on hash tables now | Lookup time is constant
 

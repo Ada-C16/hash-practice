@@ -10,6 +10,6 @@ Why is a good Hash Function Important? | Because it avoid collision and runtime 
 How can you judge if a hash function is good or not? | A good algorithm that can avoid collision
 Is there a perfect hash function? If so, what is it? No. It all depends on what you're hoping to do
 Describe a strategy to handle collisions in a hash table | Use linear probing to find the next available space
-Describe a situation where a hash table wouldn't be as useful as a binary search tree | When order is important. Although later version of python dictionary is ordered, so I guess ordering isn't going to be an issue?  idk
-What is one thing that is more clear to you on hash tables now | lookup time is constant
+Describe a situation where a hash table wouldn't be as useful as a binary search tree | When ordering is important. Although later version of python dictionary is ordered, so I guess ordering isn't going to be an issue? idk
+What is one thing that is more clear to you on hash tables now | Lookup time is constant
 

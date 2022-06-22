@@ -2,8 +2,8 @@
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(1)
     """
     # start with empty dictionary
     anagram_dict = {}
@@ -22,9 +22,6 @@ def grouped_anagrams(strings):
     return list(anagram_dict.values())
 
 
-
-
-    
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements

@@ -55,7 +55,30 @@ def top_k_frequent_elements(nums, k):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    def make_freq_map(nums):
+        freq_map = {}
+        for num in nums:
+            if num in freq_map:
+                freq_map[num] +=1
+            else:
+                freq_map[num] = 1
+        return freq_map
+    
+    def sort_freq_map(freq_map, k):
+        k_list = []
+        for key,value in freq_map.items():
+            if len(k_list) < k:
+                k_list.append((key,value))
+            else:
+                for pair in k_list:
+                    if value > pair[1]:
+                        k_list.remove(pair)
+                        k_list.append((key,value))
+                        break
+        return k_list
+    
+    freq_map = make_freq_map(nums)
+    return sort_freq_map(freq_map,k)
 
 
 def valid_sudoku(table):

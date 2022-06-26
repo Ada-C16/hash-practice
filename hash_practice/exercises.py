@@ -75,11 +75,13 @@ def top_k_frequent_elements(nums, k):
                         k_list.remove(pair)
                         k_list.append((key,value))
                         break
-        return k_list
+        return_list = []
+        for pair in k_list:
+            return_list.append(pair[0])
+        return return_list
     
     freq_map = make_freq_map(nums)
     return sort_freq_map(freq_map,k)
-
 
 def valid_sudoku(table):
     """ This method will return the true if the table is still

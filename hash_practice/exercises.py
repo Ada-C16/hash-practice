@@ -67,19 +67,36 @@ def top_k_frequent_elements(nums, k):
     You should be able to equal or beat O(n log n), where n is the array's size.
         This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
 
+    # if empty list return an empty array
+
+    if len(nums) == 0:
+        return []
+    # count the frequency  of each element
     hash_table = {}
+    frequency = [[] for i in range(len(nums) +1)]
 
     for item in nums:
-        if item not in hash_table:
-            hash_table[item] = 1
-        else:
-            hash_table[item] +=1 
+        # coutn how many times an item occurs , return 0 if doesn't exists
+        hash_table[item] = 1 + hash_table.get(item,0)
+    # loop thorugh key-value pair 
+    for item, count in hash_table.items():
+        # append to the the freq list 
+        frequency[count].append(item)
 
+    result = []
+    
+    # loop though all the way up until zero
+    for index in range(len(frequency) -1, 0, -1):
+        for elem in frequency[index]:
+            result.append(elem)
+            if len(result) == k:
+                return result
 
+print(top_k_frequent_elements([9,9,8,8,7],2))
 
 def valid_sudoku(table):
     """

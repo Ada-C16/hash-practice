@@ -90,6 +90,7 @@ def top_k_frequent_elements(nums, k):
     result = []
     
     # loop though all the way up until zero
+    # range(start, stop, step)
     for index in range(len(frequency) -1, 0, -1):
         for elem in frequency[index]:
             result.append(elem)
@@ -100,8 +101,7 @@ print(top_k_frequent_elements([9,9,8,8,7],2))
 
 def valid_sudoku(table):
     """
-    
-    
+    OPTIONAL
     This method will return the true if the table is still
         a valid sudoku table.
         Each element can either be a ".", or a digit 1-9

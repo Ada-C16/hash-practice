@@ -2,10 +2,17 @@
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
-    pass
+    anagram_dict = {}
+    for sorted_word in strings:
+       a = tuple(sorted(sorted_word))
+       if a in anagram_dict:
+           anagram_dict[a].append(sorted_word) 
+       else:
+           anagram_dict[a] = [sorted_word]
+    return list(anagram_dict.values())
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
@@ -13,7 +20,25 @@ def top_k_frequent_elements(nums, k):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    if len(nums) == 0:
+        return []
+
+    count = {}
+    freq = [[] for i in range(len(nums) + 1)]
+
+    for n in nums:
+        count[n] = 1 + count.get(n, 0)
+
+    for n, c in count.items():
+        freq[c].append(n)
+
+    res = []
+    for i in range(len(freq) - 1, 0, -1):
+        for n in freq[i]:
+            res.append(n)
+            if len(res) == k:
+                return res
+
 
 
 def valid_sudoku(table):

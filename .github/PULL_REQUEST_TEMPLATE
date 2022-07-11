@@ -7,9 +7,9 @@ Congratulations! You're submitting your assignment!
 Question | Answer
 :------------- | :-------------
 Why is a good Hash Function Important? | 
-How can you judge if a hash function is good or not? | 
-Is there a perfect hash function?  If so what is it? | 
-Describe a strategy to handle collisions in a hash table | 
-Describe a situation where a hash table wouldn't be as useful as a binary search tree | 
-What is one thing that is more clear to you on hash tables now | 
+How can you judge if a hash function is good or not? | Hash tables work most efficiently, as we will see, the fewer collisions they have
+Is there a perfect hash function?  If so what is it? | There is no such thing as a perfect hash table. Hash tables are heuristics which are are algorithms which work practically well, but may have a mathematically possible worst-case which is unattractive.
+Describe a strategy to handle collisions in a hash table | e hash table checks the next element in the array, and the next and so on until an empty bucket is found. Incidentally, this is how Python dictionaries handle collisions.
+Describe a situation where a hash table wouldn't be as useful as a binary search tree | If a dataset cannot provide unique key values, a hash table may not be the best solution.
+What is one thing that is more clear to you on hash tables now | That collision can occur in hashing, I assumed space was alwayscreated.
 

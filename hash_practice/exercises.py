@@ -42,5 +42,7 @@ def valid_sudoku(table):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    is_valid_sodoku = False
+
+    return is_valid_sodoku
 

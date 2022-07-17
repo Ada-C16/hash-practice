@@ -12,8 +12,8 @@ def create_freq_map(word):
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n^2)
+        Space Complexity: O(n)
 
     Ideas
     Have freq maps as keys and words as values in a list
@@ -43,8 +43,8 @@ def grouped_anagrams(strings):
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
 
     Ideas
     Create freq map where keys are nums and value is the frequency
@@ -66,26 +66,11 @@ def top_k_frequent_elements(nums, k):
 
     with duplicate max values:
     - create max_list instead of a variable
-
+    - sort list
+    - slice list
+    - iterate through freq map and add values that match the sliced list elements to a set
+    to avoid duplicates
     """
-    # max_count = 0
-    # freq_map = {}
-    # for num in nums:
-    #     if num in freq_map:
-    #         freq_map[num] += 1
-    #     else:
-    #         freq_map[num] = 1
-
-    #     if max_count < freq_map[num]:
-    #         max_count = freq_map[num]
-
-    # answer = []
-    # for key, value in freq_map.items():
-    #     if k > 0:
-    #         if value == max_count:
-    #             answer.append(key)
-    #             k -= 1
-    #             max_count -= 1
 
     freq_map = {}
     for num in nums:
@@ -97,7 +82,9 @@ def top_k_frequent_elements(nums, k):
     freq_values = list(freq_map.values())
     # sorts values of freq map in descending order
     freq_values.sort(reverse=True)
-    # k number of max frequencies 
+    # k number of max frequencies. Assumes if k = 2, and there are more than one with the 2nd highest frequency
+    # ex output = [1,1,2,2,3,3,3]
+    # 1 and 2 are tied so they are both added to max_values and the output will have 3 elements in a list. output = [1,2,3]
     max_values = freq_values[:k]
 
     answer = set()
@@ -105,12 +92,7 @@ def top_k_frequent_elements(nums, k):
         for max in max_values:
             if value == max:
                 answer.add(key)
-    
-    
     return list(answer)
-
-    
-
 
 def valid_sudoku(table):
     """ This method will return the true if the table is still

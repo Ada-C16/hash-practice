@@ -1,6 +1,7 @@
 import pytest
 from hash_practice.exercises import valid_sudoku
 
+@pytest.mark.skip()
 def test_example_in_readme():
     # Arrange
     table = [
@@ -21,6 +22,7 @@ def test_example_in_readme():
     # Assert
     assert valid
 
+@pytest.mark.skip()
 def test_an_invalid_example():
   # Arrange
   table = [
@@ -39,6 +41,7 @@ def test_an_invalid_example():
   valid = valid_sudoku(table)
   assert not valid
 
+@pytest.mark.skip()
 def test_blank_grid():
     # Arrange
     table = [
@@ -59,6 +62,7 @@ def test_blank_grid():
     # Assert
     assert valid
 
+@pytest.mark.skip()
 def test_one_number_in_grid():
     # Arrange
     table = [
@@ -79,6 +83,7 @@ def test_one_number_in_grid():
     # Assert
     assert valid
 
+@pytest.mark.skip()
 def test_two_numbers_in_same_row_in_grid():
     # Arrange
     table = [
@@ -99,6 +104,7 @@ def test_two_numbers_in_same_row_in_grid():
     # Assert
     assert not valid
 
+@pytest.mark.skip()
 def test_two_numbers_in_same_col_in_grid():
     # Arrange
     table = [
@@ -119,6 +125,7 @@ def test_two_numbers_in_same_col_in_grid():
     # Assert
     assert not valid
 
+@pytest.mark.skip()
 def test_two_numbers_in_same_subgrid_in_grid():
     # Arrange
     table = [

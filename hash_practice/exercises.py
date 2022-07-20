@@ -23,7 +23,28 @@ def top_k_frequent_elements(nums, k):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    num_frequency = {}
+    frequency_dict = {}
+    for i in nums:
+        if i not in num_frequency:
+            num_frequency[i] = 1
+        else:
+            num_frequency[i] += 1
+    
+    for key, value in num_frequency.items():
+        if value not in frequency_dict:
+            frequency_dict[value] = [key]
+        else:
+            frequency_dict[value].append(key)
+
+    top_k_freq_ele = []
+    for i in range(len(nums), 0, -1):
+        if i in top_k_freq_ele:
+            top_k_freq_ele.extend(frequency_dict[i])
+        if len(top_k_freq_ele) >= k:
+            break
+
+    return top_k_freq_ele
 
 
 def valid_sudoku(table):

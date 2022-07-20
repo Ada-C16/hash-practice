@@ -1,11 +1,21 @@
-
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: While there appears only a single for-loop, 
+        .join() adds O(N) & sorted() adds O(nlogn) during their ideal case
+        Space Complexity: We're adding a new data structure, the anagrams_hash,
+        meaning we're adding linear O(N) space based on the size of this new hash table
+        We're also adding an auxiliary sorted_anagram string
     """
-    pass
+    anagrams_hash = {}
+    for anagram in strings:
+        sorted_anagram = "".join(sorted(anagram))
+        if sorted_anagram in anagrams_hash:
+            anagrams_hash[sorted_anagram].append(anagram)
+        else:
+            anagrams_hash[sorted_anagram] = [anagram]
+
+    return list(anagrams_hash.values())
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
@@ -27,3 +37,4 @@ def valid_sudoku(table):
     """
     pass
 
+print(grouped_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

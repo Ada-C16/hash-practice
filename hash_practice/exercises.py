@@ -18,7 +18,7 @@ def grouped_anagrams(strings):
     return_list = []
     for k, v in anagrams.items():
         return_list.append(v)
-    return_list
+    return return_list
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements

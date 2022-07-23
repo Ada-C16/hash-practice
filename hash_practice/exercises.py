@@ -1,11 +1,28 @@
 
+from array import array
+from distutils.log import error
+import string
+
+
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    
+    words = [strings]  #this is an array with strings in it 
+    for strings in words: 
+        if sorted(words[0]) == sorted(words[1]):
+            sorted(words[0]) = []
+            if(sorted(strings)== sorted(strings)):   
+        print(string) 
+
+#expected_answer = [
+        ["ate","eat","tea"],
+        ["nat","tan"],
+        ["bat"]
+   #   ]
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements

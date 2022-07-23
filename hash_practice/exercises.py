@@ -7,8 +7,8 @@ import string
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
     anagram_dict = {}
     for sorted_word in strings:
@@ -55,3 +55,4 @@ def valid_sudoku(table):
         Space Complexity: ?
     """
     pass
+print(top_k_frequent_elements([1, 2, 2, 2, 3, 3, 3], 2))

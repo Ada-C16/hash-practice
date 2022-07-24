@@ -27,10 +27,26 @@ def grouped_anagrams(strings):
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
-    pass
+    element_map = {}
+    for num in nums:
+        if num not in element_map:
+            element_map[num] = 1
+        else:
+            element_map[num] += 1
+    
+    most_common = []
+    value_list = list(element_map.values())
+    for key, value in element_map.items():
+        if value == max(value_list):
+            most_common.append(key)
+            value_list.remove(value)
+        if len(most_common) == k:
+            break
+            
+    return most_common
 
 
 def valid_sudoku(table):

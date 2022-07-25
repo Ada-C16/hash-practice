@@ -46,6 +46,68 @@ def top_k_frequent_elements(nums, k):
 
     return top_k_freq_ele
 
+def not_in_row(arr, row):
+ 
+    # Set to store characters seen so far.
+    st = set()
+ 
+    for i in range(0, 9):
+ 
+        # If already encountered before,
+        # return false
+        if arr[row][i] in st:
+            return False
+ 
+        # If it is not an empty cell, insert value
+        # at the current cell in the set
+        if arr[row][i] != '.':
+            st.add(arr[row][i])
+     
+    return True
+
+def not_in_col(arr, col):
+ 
+    st = set()
+ 
+    for i in range(0, 9):
+ 
+        # If already encountered before,
+        # return false
+        if arr[i][col] in st:
+            return False
+ 
+        # If it is not an empty cell, insert
+        # value at the current cell in the set
+        if arr[i][col] != '.':
+            st.add(arr[i][col])
+     
+    return True
+
+def not_in_box(arr, startRow, startCol):
+ 
+    st = set()
+ 
+    for row in range(0, 3):
+        for col in range(0, 3):
+            curr = arr[row + startRow][col + startCol]
+ 
+            # If already encountered before,
+            # return false
+            if curr in st:
+                return False
+ 
+            # If it is not an empty cell,
+            # insert value at current cell in set
+            if curr != '.':
+                st.add(curr)
+         
+    return True
+
+def isValid(arr, row, col):
+ 
+    return (not_in_row(arr, row) and not_in_col(arr, col) and
+            not_in_box(arr, row - row % 3, col - col % 3))
+
 
 def valid_sudoku(table):
     """ This method will return the true if the table is still
@@ -56,6 +118,12 @@ def valid_sudoku(table):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
-
-print(grouped_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+    for i in range(0, n):
+        for j in range(0, n):
+ 
+            # If current row or current column or
+            # current 3x3 box is not valid, return false
+            if not isValid(table, i, j):
+                return False
+         
+    return True

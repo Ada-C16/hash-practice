@@ -46,65 +46,62 @@ def top_k_frequent_elements(nums, k):
 
     return top_k_freq_ele
 
+
+# helper functions for sudoku
+# using sets, not hash tables
 def not_in_row(arr, row):
  
     # Set to store characters seen so far.
-    st = set()
+    temp_set = set()
  
     for i in range(0, 9):
  
         # If already encountered before,
         # return false
-        if arr[row][i] in st:
+        if arr[row][i] in temp_set:
             return False
  
         # If it is not an empty cell, insert value
         # at the current cell in the set
         if arr[row][i] != '.':
-            st.add(arr[row][i])
+            temp_set.add(arr[row][i])
      
     return True
 
 def not_in_col(arr, col):
- 
-    st = set()
- 
+    temp_set = set()
     for i in range(0, 9):
- 
         # If already encountered before,
         # return false
-        if arr[i][col] in st:
+        if arr[i][col] in temp_set:
             return False
  
         # If it is not an empty cell, insert
         # value at the current cell in the set
         if arr[i][col] != '.':
-            st.add(arr[i][col])
+            temp_set.add(arr[i][col])
      
     return True
 
 def not_in_box(arr, startRow, startCol):
- 
-    st = set()
- 
+    temp_set = set()
     for row in range(0, 3):
         for col in range(0, 3):
             curr = arr[row + startRow][col + startCol]
  
             # If already encountered before,
             # return false
-            if curr in st:
+            if curr in temp_set:
                 return False
  
             # If it is not an empty cell,
             # insert value at current cell in set
             if curr != '.':
-                st.add(curr)
+                temp_set.add(curr)
          
     return True
 
-def isValid(arr, row, col):
- 
+def is_valid(arr, row, col):
     return (not_in_row(arr, row) and not_in_col(arr, col) and
             not_in_box(arr, row - row % 3, col - col % 3))
 
@@ -115,15 +112,17 @@ def valid_sudoku(table):
         Each element can either be a ".", or a digit 1-9
         The same digit cannot appear twice or more in the same 
         row, column or 3x3 subgrid
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: Quadratic O(N^2) - nested for loop
+        Space Complexity: Constant O(1) - not initializing any new data structures;
+        unless we're counting temp sets from our helper functions
+
     """
-    for i in range(0, n):
-        for j in range(0, n):
- 
+    length = len(table)
+    for i in range(0, length):
+        for j in range(0, length):
             # If current row or current column or
             # current 3x3 box is not valid, return false
-            if not isValid(table, i, j):
+            if not is_valid(table, i, j):
                 return False
          
     return True

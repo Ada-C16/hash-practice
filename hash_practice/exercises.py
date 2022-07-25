@@ -1,3 +1,6 @@
+import collections
+import heapq
+
 def grouped_anagrams(strings):
     """ This method will return an array of arrays.
         Each subarray will have strings which are anagrams of each other
@@ -17,47 +20,40 @@ def grouped_anagrams(strings):
 
     return list(anagrams_hash.values())
 
+
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: Traversing through the list once to calculate the frequency, which is Linear O(N). 
+           In addition, we're using heap to sort & find frequent words, which is Linear-Log O(NlogK)
+           where N is the number of items in the list -> overall time complexity O(NlogK)
+        Space Complexity: Linear O(N) - we're initializing new data structures
     """
-    num_frequency = {}
-    frequency_dict = {}
-    for i in nums:
-        if i not in num_frequency:
-            num_frequency[i] = 1
-        else:
-            num_frequency[i] += 1
+    if nums == []:
+        return []
+
+    nums_dict = collections.defaultdict(int)
+    for n in nums:
+        nums_dict[n] += 1
+
+    output = []
+    heap_list = [(-freq, key) for key, freq in nums_dict.items()]
+    heapq.heapify(heap_list)
     
-    for key, value in num_frequency.items():
-        if value not in frequency_dict:
-            frequency_dict[value] = [key]
-        else:
-            frequency_dict[value].append(key)
-
-    top_k_freq_ele = []
-    for i in range(len(nums), 0, -1):
-        if i in top_k_freq_ele:
-            top_k_freq_ele.extend(frequency_dict[i])
-        if len(top_k_freq_ele) >= k:
-            break
-
-    return top_k_freq_ele
+    while(len(output) < k):
+        output.append(heapq.heappop(heap_list)[1])
+    
+    return output
 
 
-# helper functions for sudoku
-# using sets, not hash tables
+# 4 helper functions for sudoku
 def not_in_row(arr, row):
- 
-    # Set to store characters seen so far.
+    # Set to store characters seen so far
     temp_set = set()
  
     for i in range(0, 9):
  
-        # If already encountered before,
-        # return false
+        # If already encountered before, return false
         if arr[row][i] in temp_set:
             return False
  
@@ -71,8 +67,7 @@ def not_in_row(arr, row):
 def not_in_col(arr, col):
     temp_set = set()
     for i in range(0, 9):
-        # If already encountered before,
-        # return false
+        # If already encountered before,return false
         if arr[i][col] in temp_set:
             return False
  
@@ -89,8 +84,7 @@ def not_in_box(arr, startRow, startCol):
         for col in range(0, 3):
             curr = arr[row + startRow][col + startCol]
  
-            # If already encountered before,
-            # return false
+            # If already encountered before, return false
             if curr in temp_set:
                 return False
  

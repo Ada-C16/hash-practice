@@ -33,16 +33,10 @@ def grouped_anagrams(strings):
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
         In the case of a tie it will select the first occuring element.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n)
+        Space Complexity: O(n)
     """
-    # Iterate through nums array 
-    # Create a dictionary to track the most common elements
-        # key = num, value = tally of num 
-    # Create a list --> this will be returned later. Append elements that have the highest tallies.
-        # Compare values to each other. If there is a tie, then consider their index in nums array.
-        # Compare the length of this list against k.  
-
+    
     nums_tally = {}
     most_common_nums = []
 
@@ -51,17 +45,10 @@ def top_k_frequent_elements(nums, k):
             nums_tally[num] = 1
         else: 
             nums_tally[num] += 1
+    
+    sorted_tally_keys = sorted(nums_tally, key=nums_tally.get, reverse=True)
 
-    for key, value in nums_tally.items():
-        if len(most_common_nums) < k:
-            if value == nums_tally[key]:
-                most_common_nums.append(key)
-            elif value > nums_tally[key]:
-                most_common_nums.append(key)
-            else:
-                continue
-        else:
-            break
+    most_common_nums = sorted_tally_keys[0:k]
 
     return most_common_nums
 

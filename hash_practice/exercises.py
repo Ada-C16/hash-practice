@@ -5,7 +5,27 @@ def grouped_anagrams(strings):
         Time Complexity: ?
         Space Complexity: ?
     """
-    pass
+    strings_dict = {}
+    anagrams_list = []
+
+    for string in strings:
+        string_list = list(string)
+        string_list.sort()
+        alphabetized_string = "".join(string_list)
+
+        if alphabetized_string not in strings_dict.keys():
+            strings_dict[alphabetized_string] = []
+            strings_dict[alphabetized_string].append(string)
+        else: 
+            strings_dict[alphabetized_string].append(string)
+    
+    for value in strings_dict.values():
+        anagrams_list.append(value)
+
+    return anagrams_list
+
+
+
 
 def top_k_frequent_elements(nums, k):
     """ This method will return the k most common elements
